@@ -415,7 +415,7 @@ func consoleDefaultFormatCaller(noColor bool) Formatter {
 					c = rel
 				}
 			}
-			c = colorize(c, colorBold, noColor) + colorize(" >", colorCyan, noColor)
+			c = colorize(c, colorBold, noColor) + colorize("", colorCyan, noColor)
 		}
 		return c
 	}
