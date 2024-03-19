@@ -316,7 +316,8 @@ func (w ConsoleWriter) writePart(buf *bytes.Buffer, evt map[string]interface{}, 
 
 	if len(s) > 0 {
 		if buf.Len() > 0 {
-			buf.WriteByte(' ') // Write space only if not the first part
+			// buf.WriteByte(' ') // Write space only if not the first part
+			buf.WriteByte('|')
 		}
 		buf.WriteString(s)
 	}
