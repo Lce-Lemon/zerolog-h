@@ -294,7 +294,8 @@ func (w ConsoleWriter) writePart(buf *bytes.Buffer, evt map[string]interface{}, 
 
 	if len(s) > 0 {
 		if buf.Len() > 0 {
-			buf.WriteByte(' ') // Write space only if not the first part
+			// buf.WriteByte(' ') // Write space only if not the first part
+			buf.WriteByte('|') // Write space only if not the first part
 		}
 		buf.WriteString(s)
 	}
@@ -377,13 +378,13 @@ func consoleDefaultFormatLevel(noColor bool) Formatter {
 			case LevelTraceValue:
 				l = colorize("TRC", colorMagenta, noColor)
 			case LevelDebugValue:
-				l = colorize("DBG", colorYellow, noColor)
+				l = colorize("DEBUG", colorYellow, noColor)
 			case LevelInfoValue:
-				l = colorize("INF", colorGreen, noColor)
+				l = colorize("INFO", colorGreen, noColor)
 			case LevelWarnValue:
-				l = colorize("WRN", colorRed, noColor)
+				l = colorize("WARN", colorRed, noColor)
 			case LevelErrorValue:
-				l = colorize(colorize("ERR", colorRed, noColor), colorBold, noColor)
+				l = colorize(colorize("ERROR", colorRed, noColor), colorBold, noColor)
 			case LevelFatalValue:
 				l = colorize(colorize("FTL", colorRed, noColor), colorBold, noColor)
 			case LevelPanicValue:
